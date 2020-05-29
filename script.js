@@ -102,19 +102,24 @@ function checkForm () {
     form.addEventListener('submit', function(e) {
         e.preventDefault()
         const input1 = checkRequired([username, email, password, password2])
-        const input2 = checkLength(username, 3, 15)
-        const input3 = isEamilValid(email)
-        const input4 = checkLength(password, 6, 20)
-        const input5 = checkPasswordsMatch(password, password2)
 
-        // container.classList.add('fadeOut')
-        // container2.classList.add('fadeIn')
-        if(input1&&input2&&input3&&input4&&input5){
-            container.classList.add('fadeOut')
-            container2.classList.add('fadeIn')
-        }else{
+        if(!input1){
             alert('Please complete the form!')
+        }else{
+            const input2 = checkLength(username, 3, 15)
+            const input3 = isEamilValid(email)
+            const input4 = checkLength(password, 6, 20)
+            const input5 = checkPasswordsMatch(password, password2)
+
+            if(input2&&input3&&input4&&input5){
+                container.classList.add('fadeOut')
+                container2.classList.add('fadeIn')
+            }
         }
+        
+
+    
+        
     })
 
     
